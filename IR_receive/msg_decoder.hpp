@@ -39,19 +39,22 @@ public:
 	    hwlib::cout << "\n";
     }
 
-    void check(unsigned int m) {
+    void check(unsigned int m, unsigned int n) {
         uint8_t player = ( (m & 0b0000000000111110) >> 1 );
 		uint8_t weapon = ( (m & 0b0000011111000000) >> 6 );
 		uint8_t control = ( (m & 0b1111100000000000) >> 11 );
-//		printByte(player);
-//		printByte(weapon);
 		uint8_t control2 = (player ^ weapon);
-//		printByte(control);
-//		printByte(control2);
-		printBytes(m);
-		ir_msg msg = { player, weapon };
+		uint8_t player2 = ( (m & 0b0000000000111110) >> 1 );
+		uint8_t weapon2 = ( (m & 0b0000011111000000) >> 6 );
+		uint8_t control3 = ( (m & 0b1111100000000000) >> 11 );
+		uint8_t control4 = (player2 ^ weapon2);
 		if(control == control2){
-			listener.msg_received(msg);
+//			ir_msg msg = {player, control};
+			listener.msg_received(m);
+		}
+		else if(control3 == control4){
+//			ir_msg msg = {player2, control2};
+			listener.msg_received(n);
 		}
     }
 	
@@ -60,7 +63,7 @@ public:
 		states state = states::idle;
 		unsigned int counter;
 		uint16_t msg = 0;
-		uint16_t redundant_msg = 0;
+		uint16_t msg2 = 0;
 		
 		for(;;){
 			switch( state ) {
@@ -70,7 +73,6 @@ public:
 					if( p > 4000 ) {
 						counter = 0;
 						msg = 0;
-						redundant_msg = 0;
 						state = states::message;
 					}
 					break;
@@ -79,41 +81,34 @@ public:
 				case states::message: {
 					wait( pauses );
 					auto p = pauses.read();
-					if( p > 600 && p < 4000 ){
-						if ( p > 600 && p < 1000 ){
-							if(counter < 16){
-								msg |= 1;
-							}
-							else {
-								redundant_msg |= 1;
-							}
-						}
-						else if( p > 1400 && p < 2000 ){
-							if(counter < 16){
-								msg |= 0;
-							}
-							else {
-								redundant_msg |= 0;
-							}
-						}
+					if ( p > 600 && p < 1000 ){
+						msg = msg << 1;
+						msg |= 1;
+						counter++;
+					}
+					else if( p > 1000 && p < 2000 ){
+						msg = msg << 1;
+						msg |= 0;
+						counter++;
 					}
 					else {
 						state = states::idle;
 					}
-					if(counter < 15){
-						msg = msg << 1;
-					}
-					else {
-						redundant_msg = redundant_msg << 1;
-					}
-					counter++;
 					
-					if( counter == 31 ){
-						
-						msg |= 1;
-						redundant_msg |= 1;
-						printBytes(msg);
-						printBytes(redundant_msg);
+					if(counter == 16){
+						msg2 = msg;
+						wait( pauses );
+						p = pauses.read();
+						if(p > 2000 && p < 4000){
+							msg = 0;
+						}
+						else {
+							state = states::idle;
+						}
+					}
+					
+					if(counter == 32){
+						check(msg2, msg);
 						state = states::idle;
 					}
 					break;
