@@ -7,7 +7,7 @@
 class IR_transmit : public rtos::task<>{
 private:
 	hwlib::target::d2_36kHz transmitter = hwlib::target::d2_36kHz();
-    hwlib::target::pin_in trigger = hwlib::target::pin_in(hwlib::target::pins::d3);
+    hwlib::target::pin_in trigger = hwlib::target::pin_in(hwlib::target::pins::d7);
     rtos::clock receive_clock;
 	const int zero_pulse = 1600;
 	const int one_pulse = 800;
@@ -78,7 +78,7 @@ public:
             switch(state){
                 case status::idle:{
                     //wait for butten input
-                    if (true){
+                    if (trigger.get()){
                         state = status::transmit;
                     }
                     break;
