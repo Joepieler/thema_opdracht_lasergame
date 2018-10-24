@@ -38,7 +38,6 @@ public:
     }    
     
     void send(const uint16_t & data){
-        head();
         uint16_t data1 = data;
         uint16_t data2 = data;
         uint16_t data3 = 32768;
@@ -66,12 +65,6 @@ public:
             hwlib::wait_us(zero_pause);
         }
     }
-    void head(){
-        transmitter.set(1);
-        hwlib::wait_us(9000);
-        transmitter.set(0);
-        hwlib::wait_us(4500);
-    }
     void set(bool b){
         transmitter.set(b);
     }
@@ -89,7 +82,7 @@ public:
                     break;
                 }
                 case status::transmit:{
-                   send(shot(1,4));
+                   send(shot(10,9));
                    state = status::idle;
                    hwlib::wait_ms(500);
                    break;
