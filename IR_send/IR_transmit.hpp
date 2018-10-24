@@ -45,12 +45,14 @@ public:
             pulse((data1 & data3 ) >> 15);
             data1 = data1 << 1;
         }
-        hwlib::wait_us(middel_pause);
+        pulse(false);
+        hwlib::wait_us(middel_pause - zero_pulse);
         for (unsigned int i = 0; i < 16; i ++){
             pulse((data2 & data3 ) >> 15);
             data2 = data2 << 1;
         }
-        hwlib::wait_us(end_pause);
+        pulse(false);
+        hwlib::wait_us(end_pause - zero_pulse);
     }
     void pulse(bool data){
         transmitter.set(1);
