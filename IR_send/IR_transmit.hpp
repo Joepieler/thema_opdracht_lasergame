@@ -78,7 +78,7 @@ public:
             switch(state){
                 case status::idle:{
                     //wait for butten input
-                    if (trigger.get()){
+                    if (true){
                         state = status::transmit;
                     }
                     break;
