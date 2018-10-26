@@ -39,38 +39,31 @@ public:
 	    hwlib::cout << "\n";
     }
 
-    void check(unsigned int m, unsigned int n) {
+	bool check(unsigned int m) {
         uint8_t player = ( (m & 0b0000000000111110) >> 1 );
 		uint8_t weapon = ( (m & 0b0000011111000000) >> 6 );
 		uint8_t control = ( (m & 0b1111100000000000) >> 11 );
 		uint8_t control2 = (player ^ weapon);
-		uint8_t player2 = ( (m & 0b0000000000111110) >> 1 );
-		uint8_t weapon2 = ( (m & 0b0000011111000000) >> 6 );
-		uint8_t control3 = ( (m & 0b1111100000000000) >> 11 );
-		uint8_t control4 = (player2 ^ weapon2);
 		if(control == control2){
-//			ir_msg msg = {player, control};
-			listener.msg_received(m);
+			return 1;
 		}
-		else if(control3 == control4){
-//			ir_msg msg = {player2, control2};
-			listener.msg_received(n);
-		}
-    }
+		return 0;
+	}
 	
 	void main() override {
 		enum states { idle, message };
 		states state = states::idle;
-		unsigned int counter;
+		unsigned int counter = 0;
+		unsigned int initial_pause = 0;
 		uint16_t msg = 0;
-		uint16_t msg2 = 0;
+		uint16_t previous_msg = 0;
 		
 		for(;;){
 			switch( state ) {
 				case states::idle: {
 					wait( pauses );
-					auto p = pauses.read();
-					if( p > 4000 ) {
+					initial_pause = pauses.read();
+					if( initial_pause > 2000 ) {
 						counter = 0;
 						msg = 0;
 						state = states::message;
@@ -86,7 +79,7 @@ public:
 						msg |= 1;
 						counter++;
 					}
-					else if( p > 1000 && p < 2000 ){
+					else if( p > 1400 && p < 1800 ){
 						msg = msg << 1;
 						msg |= 0;
 						counter++;
@@ -95,21 +88,15 @@ public:
 						state = states::idle;
 					}
 					
-					if(counter == 16){
-						msg2 = msg;
-						wait( pauses );
-						p = pauses.read();
-						if(p > 2000 && p < 4000){
-							msg = 0;
+					if(counter == 16 && check(msg) ){
+						if( initial_pause > 2000 && initial_pause < 4000 && msg == previous_msg ) {
+							previous_msg = 0;
 						}
 						else {
+							previous_msg = msg;
+							listener.msg_received(msg);
 							state = states::idle;
 						}
-					}
-					
-					if(counter == 32){
-						check(msg2, msg);
-						state = states::idle;
 					}
 					break;
 				}

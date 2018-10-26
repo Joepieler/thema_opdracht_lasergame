@@ -21,10 +21,22 @@ public:
     };
 
 	void main() override {
+        enum states {idle, show_message};
+        states state = states::idle;
 		for(;;){
-			wait(messages);
-			auto p = messages.read();
-			hwlib::cout << p << "\n";
+			switch(state) {
+				case states::idle: {
+					wait(messages);
+					state = states::show_message;
+				}
+				
+				case states::show_message: {
+					auto p = messages.read();
+					hwlib::wait_ms( 50 );
+					hwlib::cout << p << "\n";
+					state = states::idle;
+				}
+			}
 		}
 	}
 };
