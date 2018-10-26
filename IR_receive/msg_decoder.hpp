@@ -40,7 +40,7 @@ public:
     }
 
 	bool check(unsigned int m) {
-        uint8_t player = ( (m & 0b0000000000111110) >> 1 );
+        	uint8_t player = ( (m & 0b0000000000111110) >> 1 );
 		uint8_t weapon = ( (m & 0b0000011111000000) >> 6 );
 		uint8_t control = ( (m & 0b1111100000000000) >> 11 );
 		uint8_t control2 = (player ^ weapon);
