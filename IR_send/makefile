@@ -12,7 +12,7 @@
 SOURCES := 
 
 # header files in this project
-HEADERS := IR_transmit.hpp
+HEADERS := ShootControl.hpp button.hpp button_listener.hpp IRControl.hpp
 
 # other places to look for files for this project
 SEARCH  := 
