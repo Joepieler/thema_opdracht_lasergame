@@ -8,7 +8,7 @@
 
 class msg_logger : public rtos::task<>, public msg_listener {
 private:
-	rtos::channel<uint16_t, 1024> messages;
+	rtos::channel<ir_msg, 1024> messages;
 
 public:
     msg_logger( const char * name ):
@@ -16,7 +16,7 @@ public:
         messages( this, "messages" )
     {}
 
-    virtual void msg_received( const uint16_t & msg ) override {
+    virtual void msg_received( const ir_msg & msg ) override {
         messages.write( msg );
     };
 
@@ -33,7 +33,7 @@ public:
 				case states::show_message: {
 					auto p = messages.read();
 					hwlib::wait_ms( 50 );
-					hwlib::cout << p << "\n";
+					hwlib::cout << p.player << "\n" << p.data << "\n";
 					state = states::idle;
 				}
 			}

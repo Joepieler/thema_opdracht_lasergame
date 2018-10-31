@@ -40,7 +40,7 @@ public:
     }
 
 	bool check(unsigned int m) {
-        	uint8_t player = ( (m & 0b0000000000111110) >> 1 );
+		uint8_t player = ( (m & 0b0000000000111110) >> 1 );
 		uint8_t weapon = ( (m & 0b0000011111000000) >> 6 );
 		uint8_t control = ( (m & 0b1111100000000000) >> 11 );
 		uint8_t control2 = (player ^ weapon);
@@ -88,13 +88,21 @@ public:
 						state = states::idle;
 					}
 					
-					if(counter == 16 && check(msg) ){
-						if( initial_pause > 2000 && initial_pause < 4000 && msg == previous_msg ) {
-							previous_msg = 0;
+					if(counter == 16){
+						if(check(msg)){
+							if( initial_pause > 2000 && initial_pause < 4000 && msg == previous_msg ) {
+								previous_msg = 0;
+							}
+							else {
+								previous_msg = msg;
+								uint8_t player = ( (msg & 0b0000000000111110) >> 1 );
+								uint8_t weapon = ( (msg & 0b0000011111000000) >> 6 );
+								ir_msg msg = {player, weapon};
+								listener.msg_received(msg);
+								state = states::idle;
+							}
 						}
-						else {
-							previous_msg = msg;
-							listener.msg_received(msg);
+						else{
 							state = states::idle;
 						}
 					}

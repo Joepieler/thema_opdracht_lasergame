@@ -3,12 +3,12 @@
 
 struct ir_msg {
 	uint8_t player;
-	uint8_t weapon;
+	uint8_t data;
 };
 
 class msg_listener {
 public:
-	virtual void msg_received( const uint16_t & msg ) = 0;
+	virtual void msg_received( const ir_msg & msg ) = 0;
 };
 
 #endif // MSG_LISTENER_HPP
