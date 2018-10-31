@@ -86,7 +86,7 @@ public:
 							game_length = msg.data;
 						}
 						else if( msg.player == 0 && msg.data >= 16) {
-							for( unsigned int i = 5; i >= 0; i--){
+							for( int i = 5; i >= 0; i--){
 								display_control.showCountdown( i );
 								hwlib::wait_ms( 1000 );
 							}
