@@ -1,7 +1,7 @@
 #ifndef WEAPONS_HPP
 #define WEAPONS_HPP
 
-class Weapons {
+class Weapon {
 private:
 	const char * weapon_name = "None";
 	uint8_t weapon_ID = 0;
