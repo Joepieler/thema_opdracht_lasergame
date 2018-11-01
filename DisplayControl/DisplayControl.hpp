@@ -4,8 +4,6 @@
 #include "hwlib.hpp"
 #include "rtos.hpp"
 
-//#include <array>
-
 class DisplayControl : public rtos::task<>{
 private:
     	rtos::flag 
@@ -221,4 +219,4 @@ public:
         }
     }
 };
-#endif // MSG_DECODER_HPP
+#endif // DISPLAY_CONTROL_HPP
