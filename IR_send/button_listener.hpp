@@ -4,7 +4,7 @@
 
 class ButtonListener{
 public:
-    virtual void buttonDetected()=0;
+    virtual void buttonDetected(const char * buttonname)=0;
     
 };
 
