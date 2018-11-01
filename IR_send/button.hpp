@@ -11,31 +11,27 @@ private:
     hwlib::pin_in & pin_button;
     ButtonListener& listener;
     rtos::clock receive_clock;
+    const char* buttonname;
 public:
-    Button(hwlib::pin_in & pin_button, ButtonListener & listener):
+    Button(hwlib::pin_in & pin_button, ButtonListener & listener, const char* buttonname):
         pin_button(pin_button),
         listener(listener),
-        receive_clock(this, 100 * rtos::ms, "receive_clock")
+        receive_clock(this, 100 * rtos::ms, "receive_clock"),
+        buttonname(buttonname)
         {}
     
       void main() override{
         
-        enum states {idle, signal};
-        states state = states::idle;
+        enum states {WAIT_FOR_BUTTON_PRESS};
+        states state = states::WAIT_FOR_BUTTON_PRESS;
         for(;;){
             switch(state){
-                case states::idle:{
+                case states::WAIT_FOR_BUTTON_PRESS:{
                     //np signal
                     wait(receive_clock);
                     if (pin_button.get()){
-                        state = states::signal;
-                        listener.buttonDetected();
+                        listener.buttonPressed(buttonname);
                     }
-                    break;
-                }
-                case states::signal:{
-                    //signal
-                    state = states::idle;
                     break;
                 }
             }
