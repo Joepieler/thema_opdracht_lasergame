@@ -58,8 +58,8 @@ public:
                     break;
                 }
                 case status::transmit:{
-                    shoot(3,4);
-                    hwlib::wait_ms(500);
+                    shoot(1,2);
+                    hwlib::wait_ms(3000);
                     state = status::idle;
                    break;
                 }
