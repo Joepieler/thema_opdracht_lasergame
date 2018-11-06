@@ -11,6 +11,8 @@ private:
 	rtos::clock pause_detector_clock;
 	hwlib::pin_in & irp;
 	PauseListener & listener;
+	
+	const unsigned int pause_interval = 100;
 public:
 	PauseDetector( const char * name, int priority, hwlib::pin_in & irp, PauseListener & listener ):
 		task( priority, name ),
@@ -27,9 +29,9 @@ public:
 		for(;;){
 			switch( state ) {
 				case states::idle: {
-					hwlib::wait_us(100);
+					hwlib::wait_us( pause_interval );
 					if( irp.get() ) {
-						pause_length += 100;
+						pause_length += pause_interval;
 					}
 					else{
 						listener.pauseDetected( pause_length );
@@ -39,7 +41,7 @@ public:
 				}
 				
 				case states::signal: {
-					hwlib::wait_us(100);
+					hwlib::wait_us( pause_interval );
 					if( irp.get() ) {
 						pause_length = 0;
 						state = states::idle;

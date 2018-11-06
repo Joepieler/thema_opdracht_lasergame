@@ -33,20 +33,20 @@ public:
 	}
 	
 	const char * getWeaponName( uint8_t weapon_ID ) {
-		if( weapon_ID == 1 ){
+		if( weapon_ID == 1 ) {
 			return "AR";
 		}
-		else if( weapon_ID == 2 ){
+		else if( weapon_ID == 2 ) {
 			return "SNIPER";
 		}
 		return "None";
 	}
 	
 	uint8_t getWeaponDamage( uint8_t weapon_ID ) {
-		if( weapon_ID == 1 ){
+		if( weapon_ID == 1 ) {
 			return 40;
 		}
-		else if( weapon_ID == 2 ){
+		else if( weapon_ID == 2 ) {
 			return 100;
 		}
 		return 0;
@@ -72,7 +72,7 @@ public:
 		return reload_time;
 	}
 	
-	void setAmmo( uint8_t amount ){
+	void setAmmo( uint8_t amount ) {
 		ammo = amount;
 	} 
 };
