@@ -82,10 +82,10 @@ public:
 	};
 	
 	virtual void buttonPressed( unsigned int & buttonnumber ) override {
-		if( buttonnumber == 0 ){
+		if( buttonnumber == 0 ) {
 			trigger_flag.set();
 		}
-		else if( buttonnumber == 1 ){
+		else if( buttonnumber == 1 ) {
 			reload_flag.set();
 		}
 	}
