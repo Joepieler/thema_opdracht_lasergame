@@ -26,7 +26,7 @@ class Button : public rtos::task<> {
 private:
     hwlib::pin_in & pin_button;
     ButtonListener& listener;
-    rtos::clock receive_clock;
+    rtos::clock button_clock;
     unsigned int button_number;
 public:
 	/// \brief
@@ -37,7 +37,7 @@ public:
 	task( priority, name ),
         pin_button( pin_button ),
         listener( listener ),
-        receive_clock( this, 100 * rtos::ms, "receive_clock" ),
+        button_clock( this, 100 * rtos::ms, "receive_clock" ),
         button_number( button_number )
         {}
 		
@@ -55,7 +55,7 @@ public:
         for(;;) {
             switch( state ) {
                 case states::WAIT_FOR_BUTTON_PRESS: {
-                    wait( receive_clock );
+                    wait( button_clock );
                     if( pin_button.get() ) {
                         listener.buttonPressed( buttonnumber );
                     }
