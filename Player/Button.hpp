@@ -57,7 +57,7 @@ public:
                 case states::WAIT_FOR_BUTTON_PRESS: {
                     wait( button_clock );
                     if( pin_button.get() ) {
-                        listener.buttonPressed( buttonnumber );
+                        listener.buttonPressed( button_number );
                     }
                     break;
                 }
