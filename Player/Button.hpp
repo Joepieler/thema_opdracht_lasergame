@@ -37,7 +37,7 @@ public:
 	task( priority, name ),
         pin_button( pin_button ),
         listener( listener ),
-        button_clock( this, 100 * rtos::ms, "receive_clock" ),
+        button_clock( this, 100 * rtos::ms, "button_clock" ),
         button_number( button_number )
         {}
 		
