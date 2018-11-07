@@ -110,8 +110,8 @@ public:
 	
 	/// \brief
 	/// This function overwrites the buttonPressed function and sets the flag depending on which button is pressed.
-	virtual void buttonPressed( unsigned int & buttonnumber ) override {
-		if( buttonnumber == 0 ) {
+	virtual void buttonPressed( unsigned int & button_number ) override {
+		if( button_number == 0 ) {
 			trigger_flag.set();
 		}
 		else if( buttonnumber == 1 ) {
