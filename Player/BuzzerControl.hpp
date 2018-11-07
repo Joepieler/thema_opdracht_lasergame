@@ -71,7 +71,7 @@ public:
                 case states::IDLE: {
                     wait( buzz_on_flag );
                     buzz_length = buzz_pool.read();
-                    buzz_length_timer.set( buzz_length * rtos::us );
+                    buzz_length_timer.set( buzz_length * rtos::ms );
                     state = states::ON;
                     break;
                 }

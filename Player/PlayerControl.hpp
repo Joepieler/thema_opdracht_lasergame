@@ -179,6 +179,8 @@ public:
 							trigger_flag.clear();
 							reload_flag.clear();
 							msg_channel.clear();
+							reload_led.set(0);
+							dead_led.set(0);
 							game_timer.set( ( game_length * 60000 ) * rtos::ms );
 							state = states::PLAYING;
 							playing_state = ALIVE_ABLE_TO_SHOOT;
@@ -193,6 +195,8 @@ public:
 							auto event = wait( trigger_flag + reload_flag + msg_channel + game_timer );
 							if( event == game_timer ) {
 								state = states::INIT_GAME;
+								reload_led.set(1);
+								dead_led.set(1);
 								game_logs.printLogs();
 								game_logs.clearLogs();
 							}
@@ -233,12 +237,15 @@ public:
 							auto event = wait( shot_delay_timer + reload_timer + msg_channel + game_timer );
 							if( event == game_timer ){
 								state = states::INIT_GAME;
+								reload_led.set(1);
+								dead_led.set(1);
 								game_logs.printLogs();
 								game_logs.clearLogs();
 							}
 							else if( event == msg_channel ) {
 								msg = msg_channel.read();
 								if( msg.player > 0 && msg.player != player_data.getPlayerID() ) {
+									buzzer_control.makeSound( buzzer_hit_length );
 									game_logs.addLog( msg.player, weapon.getWeaponName(msg.data) );
 									if( weapon.getWeaponDamage(msg.data) >= player_data.getHealth() ) {
 										player_data.setHealth( 0 );
@@ -266,16 +273,21 @@ public:
 						}
 						
 						case playing_states::DEAD: {
+							reload_led.set(0);
 							death_timer.set( (player_data.getDeathLength() * 1000) * rtos::ms );
 							player_data.setDeaths( (player_data.getDeaths() + 1 ) );
 							display_control.showDeaths( player_data.getDeaths() );
 							auto event = wait( death_timer + game_timer );
 							if( event == game_timer ) {
 								state = states::INIT_GAME;
+								reload_led.set(1);
+								dead_led.set(1);
 								game_logs.printLogs();
 								game_logs.clearLogs();
 							}
 							else if ( event == death_timer ) {
+								reload_flag.clear();
+								trigger_flag.clear();
 								player_data.setHealth( player_data.getMaxHealth() );
 								weapon.setAmmo( weapon.getMaxAmmo() );
 								display_control.showHealth( player_data.getHealth() );
