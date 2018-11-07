@@ -21,6 +21,7 @@ int main( void ) {
 	WDT->WDT_MR = WDT_MR_WDDIS;
 	hwlib::wait_ms( 500 );
 	
+	auto laserpin = hwlib::target::pin_out( hwlib::target::pins::d5 );
 	auto deadled = hwlib::target::pin_out( hwlib::target::pins::d11 );
 	auto reloadled = hwlib::target::pin_out( hwlib::target::pins::d12 );
 
@@ -40,7 +41,7 @@ int main( void ) {
 	auto player_data = PlayerData();
 	auto buzzer_control = BuzzerControl( "Buzzer", 9, buzzer );
 	auto IR_control = IRControl( "IRControl", 2 );
-	auto shoot_control = ShootControl( "ShootControl", 3, IR_control, player_data, weapon );
+	auto shoot_control = ShootControl( "ShootControl", 3, IR_control, player_data, weapon, laserpin );
 	auto player_control = PlayerControl( "PlayerControl", 4, shoot_control, display_control, buzzer_control, player_data, weapon, game_logs, deadled, reloadled );
 	auto keypad_control = KeypadControl( "KeypadControl", 7, display_control, player_control, weapon, player_data );
 	auto msg_decoder = MsgDecoder( "MsgDecoder", 1, player_control );
