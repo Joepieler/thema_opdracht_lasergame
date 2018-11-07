@@ -1,0 +1,70 @@
+\hypertarget{class_player_control}{}\section{Player\+Control Class Reference}
+\label{class_player_control}\index{Player\+Control@{Player\+Control}}
+
+
+This class controls the player tasks.  
+
+
+
+
+{\ttfamily \#include $<$Player\+Control.\+hpp$>$}
+
+Inheritance diagram for Player\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player_control}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_control_af026842ca91afba7f60da162f6fc527e}{Player\+Control}} (const char $\ast$name, int priority, \mbox{\hyperlink{class_shoot_control}{Shoot\+Control}} \&shoot\+\_\+control, \mbox{\hyperlink{class_display_control}{Display\+Control}} \&display\+\_\+control, \mbox{\hyperlink{class_buzzer_control}{Buzzer\+Control}} \&buzzer\+\_\+control, \mbox{\hyperlink{class_player_data}{Player\+Data}} \&player\+\_\+data, \mbox{\hyperlink{class_weapon}{Weapon}} \&weapon, \mbox{\hyperlink{class_game_logs}{Game\+Logs}} \&game\+\_\+logs, auto \&reload\+\_\+led, auto \&dead\+\_\+led)
+\begin{DoxyCompactList}\small\item\em This is the constructor for the \mbox{\hyperlink{class_player_control}{Player\+Control}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_player_control_af62429d7e940448496a196abf1bdc51f}\label{class_player_control_af62429d7e940448496a196abf1bdc51f}} 
+void \mbox{\hyperlink{class_player_control_af62429d7e940448496a196abf1bdc51f}{set\+Player\+Number}} (uint8\+\_\+t player\+\_\+number)
+\begin{DoxyCompactList}\small\item\em This function writes in the player\+\_\+number\+\_\+channel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_player_control_a73d535a1e16aadc234c6cd59e466305f}\label{class_player_control_a73d535a1e16aadc234c6cd59e466305f}} 
+void \mbox{\hyperlink{class_player_control_a73d535a1e16aadc234c6cd59e466305f}{set\+Weapon}} (uint8\+\_\+t weapon\+\_\+number)
+\begin{DoxyCompactList}\small\item\em This function writes in the player\+\_\+weapon\+\_\+channel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_player_control_a0d9fe3c384a800e4cd17cf15103b42c2}\label{class_player_control_a0d9fe3c384a800e4cd17cf15103b42c2}} 
+virtual void \mbox{\hyperlink{class_player_control_a0d9fe3c384a800e4cd17cf15103b42c2}{msg\+Received}} (const \mbox{\hyperlink{structir__msg}{ir\+\_\+msg}} \&msg) override
+\begin{DoxyCompactList}\small\item\em This function overwrites the msg\+Received function and writes the messsage in the msg\+\_\+channel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_player_control_a513d3c69e50d57af99b0dc14d86aa6c0}\label{class_player_control_a513d3c69e50d57af99b0dc14d86aa6c0}} 
+virtual void \mbox{\hyperlink{class_player_control_a513d3c69e50d57af99b0dc14d86aa6c0}{button\+Pressed}} (unsigned int \&buttonnumber) override
+\begin{DoxyCompactList}\small\item\em This function overwrites the button\+Pressed function and sets the flag depending on which button is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_control_a9b3e136e412776977a658b232e7e9d6e}{main}} () override
+\begin{DoxyCompactList}\small\item\em This function contains the state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class controls the player tasks. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_player_control_af026842ca91afba7f60da162f6fc527e}\label{class_player_control_af026842ca91afba7f60da162f6fc527e}} 
+\index{Player\+Control@{Player\+Control}!Player\+Control@{Player\+Control}}
+\index{Player\+Control@{Player\+Control}!Player\+Control@{Player\+Control}}
+\subsubsection{\texorpdfstring{Player\+Control()}{PlayerControl()}}
+{\footnotesize\ttfamily Player\+Control\+::\+Player\+Control (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{\mbox{\hyperlink{class_shoot_control}{Shoot\+Control}} \&}]{shoot\+\_\+control,  }\item[{\mbox{\hyperlink{class_display_control}{Display\+Control}} \&}]{display\+\_\+control,  }\item[{\mbox{\hyperlink{class_buzzer_control}{Buzzer\+Control}} \&}]{buzzer\+\_\+control,  }\item[{\mbox{\hyperlink{class_player_data}{Player\+Data}} \&}]{player\+\_\+data,  }\item[{\mbox{\hyperlink{class_weapon}{Weapon}} \&}]{weapon,  }\item[{\mbox{\hyperlink{class_game_logs}{Game\+Logs}} \&}]{game\+\_\+logs,  }\item[{auto \&}]{reload\+\_\+led,  }\item[{auto \&}]{dead\+\_\+led }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for the \mbox{\hyperlink{class_player_control}{Player\+Control}}. 
+
+The constructor expects shootcontrol, displaycontrol, buzzercontrol, playerdata, weapon, and gamelogs to send messages to or get data from. The constructor also expects two pins for the reload and dead leds. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_control_a9b3e136e412776977a658b232e7e9d6e}\label{class_player_control_a9b3e136e412776977a658b232e7e9d6e}} 
+\index{Player\+Control@{Player\+Control}!main@{main}}
+\index{main@{main}!Player\+Control@{Player\+Control}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Player\+Control\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This function contains the state machine. 
+
+This function consists of 5 states. The state init\+\_\+game waits for the player\+\_\+number and player\+\_\+weapon from the keypad and a message from the msgdecoder. The message is used to set the game time and start the game. When the game starts the state becomes playing. The playing state consists of 3 states and starts with alive\+\_\+able\+\_\+to\+\_\+shoot. All three substates of playing wait for a game timer to end the game print the logs and transition back to the init state. The alive\+\_\+able\+\_\+to\+\_\+shoot state waits for the trigger or reload flag to set a timer and transition to the alive\+\_\+not\+\_\+able\+\_\+to\+\_\+shot state. It also waits for a message to check if the player gets hit. If the player dies the state transitions to the dead state. The alive\+\_\+not\+\_\+able\+\_\+to\+\_\+shoot state also waits for a message to check if the player gets hit. If the player dies the state transition to the dead state. If the timer set by the alive\+\_\+able\+\_\+to\+\_\+shoot state runs out the state transitions back to the alive\+\_\+able\+\_\+to\+\_\+shoot. The dead state resets the player health ammo and waits for the death timer. When the timer runs out the state transitions back to alive\+\_\+able\+\_\+to\+\_\+shoot. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Player/\mbox{\hyperlink{_player_control_8hpp}{Player\+Control.\+hpp}}\end{DoxyCompactItemize}

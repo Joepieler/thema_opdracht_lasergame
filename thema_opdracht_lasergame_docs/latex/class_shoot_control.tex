@@ -1,0 +1,73 @@
+\hypertarget{class_shoot_control}{}\section{Shoot\+Control Class Reference}
+\label{class_shoot_control}\index{Shoot\+Control@{Shoot\+Control}}
+
+
+This class encodes and sends the message to be sent to the \mbox{\hyperlink{class_i_r_control}{I\+R\+Control}} class and controls the laser.  
+
+
+
+
+{\ttfamily \#include $<$Shoot\+Control.\+hpp$>$}
+
+Inheritance diagram for Shoot\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.866667cm]{class_shoot_control}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_shoot_control_a90a3fa56f1c3a7131c95eab240794f28}\label{class_shoot_control_a90a3fa56f1c3a7131c95eab240794f28}} 
+{\bfseries Shoot\+Control} (\mbox{\hyperlink{class_i_r_control}{I\+R\+Control}} \&I\+R\+\_\+control)
+\item 
+\mbox{\Hypertarget{class_shoot_control_ab5a9b55187693bdb2f49c4ae4a5de039}\label{class_shoot_control_ab5a9b55187693bdb2f49c4ae4a5de039}} 
+virtual void {\bfseries button\+Detected} () override
+\item 
+\mbox{\Hypertarget{class_shoot_control_ad4fbd66576dc4389d57d00aaa414fca8}\label{class_shoot_control_ad4fbd66576dc4389d57d00aaa414fca8}} 
+void {\bfseries shoot} (const int playernumber, const int typewapen)
+\item 
+\mbox{\Hypertarget{class_shoot_control_afda9df061db3b34fdf9affed32f2c325}\label{class_shoot_control_afda9df061db3b34fdf9affed32f2c325}} 
+void {\bfseries main} () override
+\item 
+\mbox{\hyperlink{class_shoot_control_af9c21b16c798f217b2da762d569473cd}{Shoot\+Control}} (const char $\ast$name, int priority, \mbox{\hyperlink{class_i_r_control}{I\+R\+Control}} \&I\+R\+\_\+control, \mbox{\hyperlink{class_player_data}{Player\+Data}} \&player\+\_\+data, \mbox{\hyperlink{class_weapon}{Weapon}} \&weapon, hwlib\+::pin\+\_\+out \&laser\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em This is the constructor for the shoot\+Control. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shoot_control_a17f6db4ed8fb3a7195e03eb54b9c26f1}\label{class_shoot_control_a17f6db4ed8fb3a7195e03eb54b9c26f1}} 
+void \mbox{\hyperlink{class_shoot_control_a17f6db4ed8fb3a7195e03eb54b9c26f1}{shoot}} ()
+\begin{DoxyCompactList}\small\item\em This function sets the shoot\+\_\+flag.  This function is used to be called by another class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shoot_control_afda9df061db3b34fdf9affed32f2c325}{main}} () override
+\begin{DoxyCompactList}\small\item\em This function contains the state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class encodes and sends the message to be sent to the \mbox{\hyperlink{class_i_r_control}{I\+R\+Control}} class and controls the laser. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shoot_control_af9c21b16c798f217b2da762d569473cd}\label{class_shoot_control_af9c21b16c798f217b2da762d569473cd}} 
+\index{Shoot\+Control@{Shoot\+Control}!Shoot\+Control@{Shoot\+Control}}
+\index{Shoot\+Control@{Shoot\+Control}!Shoot\+Control@{Shoot\+Control}}
+\subsubsection{\texorpdfstring{Shoot\+Control()}{ShootControl()}}
+{\footnotesize\ttfamily Shoot\+Control\+::\+Shoot\+Control (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{\mbox{\hyperlink{class_i_r_control}{I\+R\+Control}} \&}]{I\+R\+\_\+control,  }\item[{\mbox{\hyperlink{class_player_data}{Player\+Data}} \&}]{player\+\_\+data,  }\item[{\mbox{\hyperlink{class_weapon}{Weapon}} \&}]{weapon,  }\item[{hwlib\+::pin\+\_\+out \&}]{laser\+\_\+pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for the shoot\+Control. 
+
+The constructor expects the class \mbox{\hyperlink{class_i_r_control}{I\+R\+Control}} the enitities player\+\_\+data and weapon as well as a output pin for the laser. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shoot_control_afda9df061db3b34fdf9affed32f2c325}\label{class_shoot_control_afda9df061db3b34fdf9affed32f2c325}} 
+\index{Shoot\+Control@{Shoot\+Control}!main@{main}}
+\index{main@{main}!Shoot\+Control@{Shoot\+Control}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Shoot\+Control\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This function contains the state machine. 
+
+This function contains only one state called idle. The idle state waits for a shoot flag. When the shoot flag is set the laser turns on and the function set\+Send\+Data is called. After 100ms the laser is turned off and the state starts waiting for the shoot\+\_\+flag again. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+I\+R\+\_\+send/Shoot\+Control.\+hpp\end{DoxyCompactItemize}

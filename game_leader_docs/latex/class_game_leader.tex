@@ -1,0 +1,64 @@
+\hypertarget{class_game_leader}{}\section{Game\+Leader Class Reference}
+\label{class_game_leader}\index{Game\+Leader@{Game\+Leader}}
+
+
+This class is used to make the game.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Leader.\+hpp$>$}
+
+Inheritance diagram for Game\+Leader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_leader}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_leader_a37f89b9731c43cb875207ebbbcdcc96f}{Game\+Leader}} (const char $\ast$name, int priority, \mbox{\hyperlink{class_send_control}{Send\+Control}} \&send\+\_\+control)
+\begin{DoxyCompactList}\small\item\em This is the constructor for the \mbox{\hyperlink{class_game_leader}{Game\+Leader}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_leader_a704a13665a65f4528ed3022111c468e2}\label{class_game_leader_a704a13665a65f4528ed3022111c468e2}} 
+void \mbox{\hyperlink{class_game_leader_a704a13665a65f4528ed3022111c468e2}{set\+Game\+Length}} (uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em This function writes the given length in the game\+\_\+length\+\_\+pool and sets the game\+\_\+length\+\_\+flag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_leader_a42849b606a56928126bc915b56695b38}\label{class_game_leader_a42849b606a56928126bc915b56695b38}} 
+void \mbox{\hyperlink{class_game_leader_a42849b606a56928126bc915b56695b38}{start\+Game}} ()
+\begin{DoxyCompactList}\small\item\em This function sets the start\+\_\+game\+\_\+flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_leader_a83c1a53edf86e4a740c6e4a08f022f36}{main}} () override
+\begin{DoxyCompactList}\small\item\em This is the state function for the \mbox{\hyperlink{class_game_leader}{Game\+Leader}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to make the game. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_leader_a37f89b9731c43cb875207ebbbcdcc96f}\label{class_game_leader_a37f89b9731c43cb875207ebbbcdcc96f}} 
+\index{Game\+Leader@{Game\+Leader}!Game\+Leader@{Game\+Leader}}
+\index{Game\+Leader@{Game\+Leader}!Game\+Leader@{Game\+Leader}}
+\subsubsection{\texorpdfstring{Game\+Leader()}{GameLeader()}}
+{\footnotesize\ttfamily Game\+Leader\+::\+Game\+Leader (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{\mbox{\hyperlink{class_send_control}{Send\+Control}} \&}]{send\+\_\+control }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for the \mbox{\hyperlink{class_game_leader}{Game\+Leader}}. 
+
+The constructor expects a \mbox{\hyperlink{class_send_control}{Send\+Control}} as parameter. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_leader_a83c1a53edf86e4a740c6e4a08f022f36}\label{class_game_leader_a83c1a53edf86e4a740c6e4a08f022f36}} 
+\index{Game\+Leader@{Game\+Leader}!main@{main}}
+\index{main@{main}!Game\+Leader@{Game\+Leader}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Game\+Leader\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This is the state function for the \mbox{\hyperlink{class_game_leader}{Game\+Leader}} class. 
+
+This function has one state\+: W\+A\+I\+T\+I\+N\+G\+\_\+\+F\+O\+R\+\_\+\+C\+O\+M\+M\+A\+ND. The function waits for game\+\_\+length\+\_\+flag and then he will send the value in the game\+\_\+length\+\_\+pool. Else he will wait for the start\+\_\+game\+\_\+flag en then he will send the start\+\_\+game\+\_\+value. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Gameleader/\mbox{\hyperlink{_game_leader_8hpp}{Game\+Leader.\+hpp}}\end{DoxyCompactItemize}

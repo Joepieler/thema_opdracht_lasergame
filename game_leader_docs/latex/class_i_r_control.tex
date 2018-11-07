@@ -1,0 +1,49 @@
+\hypertarget{class_i_r_control}{}\section{I\+R\+Control Class Reference}
+\label{class_i_r_control}\index{I\+R\+Control@{I\+R\+Control}}
+
+
+This class is used to control the IR signal.  
+
+
+
+
+{\ttfamily \#include $<$I\+R\+Control.\+hpp$>$}
+
+Inheritance diagram for I\+R\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_r_control}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_r_control_a8215b1ea3c124039e11422b597f31b95}\label{class_i_r_control_a8215b1ea3c124039e11422b597f31b95}} 
+\mbox{\hyperlink{class_i_r_control_a8215b1ea3c124039e11422b597f31b95}{I\+R\+Control}} (const char $\ast$name, int priority)
+\begin{DoxyCompactList}\small\item\em This is the constructor for IR control. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_r_control_aeb6e04f6fb5260ed9d8b6b33eac42c37}\label{class_i_r_control_aeb6e04f6fb5260ed9d8b6b33eac42c37}} 
+void \mbox{\hyperlink{class_i_r_control_aeb6e04f6fb5260ed9d8b6b33eac42c37}{set\+Send\+Data}} (uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function writes the given data in the send\+\_\+data\+\_\+channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_i_r_control_a015c547c9a8a37bc99fc3f98190b6787}{main}} () override
+\begin{DoxyCompactList}\small\item\em This is the state function for the IR control class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to control the IR signal. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_r_control_a015c547c9a8a37bc99fc3f98190b6787}\label{class_i_r_control_a015c547c9a8a37bc99fc3f98190b6787}} 
+\index{I\+R\+Control@{I\+R\+Control}!main@{main}}
+\index{main@{main}!I\+R\+Control@{I\+R\+Control}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void I\+R\+Control\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This is the state function for the IR control class. 
+
+This function has one state\+: W\+A\+I\+T\+\_\+\+F\+O\+R\+\_\+\+D\+A\+TA. The function waits for the send\+\_\+data\+\_\+channel en then he will send the data from the send\+\_\+data\+\_\+channel. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Gameleader/\mbox{\hyperlink{_i_r_control_8hpp}{I\+R\+Control.\+hpp}}\end{DoxyCompactItemize}

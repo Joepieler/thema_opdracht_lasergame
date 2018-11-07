@@ -1,0 +1,58 @@
+\hypertarget{class_keypad_control}{}\section{Keypad\+Control Class Reference}
+\label{class_keypad_control}\index{Keypad\+Control@{Keypad\+Control}}
+
+
+This class is used to control the keypad.  
+
+
+
+
+{\ttfamily \#include $<$Keypad\+Control.\+hpp$>$}
+
+Inheritance diagram for Keypad\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_keypad_control}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_keypad_control_ade69a59ba2a34bde40809433952cb153}{Keypad\+Control}} (const char $\ast$name, int priority, \mbox{\hyperlink{class_game_leader}{Game\+Leader}} \&game\+\_\+leader, \mbox{\hyperlink{class_display_control}{Display\+Control}} \&display\+\_\+control)
+\begin{DoxyCompactList}\small\item\em This is the constructor for keypad control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keypad_control_a66ec8a33eceb20d5d1d243c270c3718b}{main}} () override
+\begin{DoxyCompactList}\small\item\em This is the state function for the keypad class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to control the keypad. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_keypad_control_ade69a59ba2a34bde40809433952cb153}\label{class_keypad_control_ade69a59ba2a34bde40809433952cb153}} 
+\index{Keypad\+Control@{Keypad\+Control}!Keypad\+Control@{Keypad\+Control}}
+\index{Keypad\+Control@{Keypad\+Control}!Keypad\+Control@{Keypad\+Control}}
+\subsubsection{\texorpdfstring{Keypad\+Control()}{KeypadControl()}}
+{\footnotesize\ttfamily Keypad\+Control\+::\+Keypad\+Control (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{\mbox{\hyperlink{class_game_leader}{Game\+Leader}} \&}]{game\+\_\+leader,  }\item[{\mbox{\hyperlink{class_display_control}{Display\+Control}} \&}]{display\+\_\+control }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for keypad control. 
+
+The constructor wants a \mbox{\hyperlink{class_game_leader}{Game\+Leader}} and a \mbox{\hyperlink{class_display_control}{Display\+Control}}. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_keypad_control_a66ec8a33eceb20d5d1d243c270c3718b}\label{class_keypad_control_a66ec8a33eceb20d5d1d243c270c3718b}} 
+\index{Keypad\+Control@{Keypad\+Control}!main@{main}}
+\index{main@{main}!Keypad\+Control@{Keypad\+Control}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Keypad\+Control\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This is the state function for the keypad class. 
+
+This function has 3 states\+: I\+D\+LE, T\+Y\+P\+E\+\_\+\+C\+O\+M\+M\+A\+ND and S\+E\+N\+D\+\_\+\+C\+O\+M\+M\+A\+ND. If the state is I\+D\+LE, the function waits for the receive\+\_\+clock and will look for the pressed key.\+If the pressed key is C then the state will be T\+Y\+P\+E\+\_\+\+C\+O\+M\+M\+A\+ND. If the state is T\+Y\+P\+E\+\_\+\+C\+O\+M\+M\+A\+ND, the function waits for the receive\+\_\+clock and will look for the pressed key. If the pressed key is C, command will be 0 and the function clear\+Command\+Value will be called and then the state will be I\+D\+LE. Else if the pressed key is between 0 and 9, command will be multiplied by 10 and the function get\+Number will be called. Else if the pressed key is $\ast$, the funtion start\+Game will be called, command will be changed to $\ast$ and on the screen you can see the command. Else if the pressed key is \#, when command is between 1 and max\+\_\+command,on the screen you can see the command and state will be S\+E\+N\+D\+\_\+\+C\+O\+M\+M\+A\+ND. If command isn\textquotesingle{}t between 1 and max\+\_\+command, command will be 0. If the state is S\+E\+N\+D\+\_\+\+C\+O\+M\+M\+A\+ND, the function waits for the receive\+\_\+clock and will look for the pressed key. If the pressed key is \#, the function set\+Game\+Length will be called. If the pressed key is C, command will be 0, the function clear\+Command\+Value will be called and the state will be I\+D\+LE. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Gameleader/\mbox{\hyperlink{_keypad_control_8hpp}{Keypad\+Control.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,61 @@
+\hypertarget{class_send_control}{}\section{Send\+Control Class Reference}
+\label{class_send_control}\index{Send\+Control@{Send\+Control}}
+
+
+This class is used to send the data.  
+
+
+
+
+{\ttfamily \#include $<$Send\+Control.\+hpp$>$}
+
+Inheritance diagram for Send\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_send_control}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_send_control_af666c41a0c262bf86bbb3009003b2c81}{Send\+Control}} (const char $\ast$name, int priority, \mbox{\hyperlink{class_i_r_control}{I\+R\+Control}} \&I\+R\+\_\+control)
+\begin{DoxyCompactList}\small\item\em This is the constructer of send control. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_send_control_a631b78165c258e5ee4bde7d0790385a0}\label{class_send_control_a631b78165c258e5ee4bde7d0790385a0}} 
+void \mbox{\hyperlink{class_send_control_a631b78165c258e5ee4bde7d0790385a0}{send}} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function writes the data in the send\+\_\+pool and sets the send\+\_\+flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_send_control_aedec285713d090002e2848228cef2617}{main}} () override
+\begin{DoxyCompactList}\small\item\em This is the state function for send control. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to send the data. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_send_control_af666c41a0c262bf86bbb3009003b2c81}\label{class_send_control_af666c41a0c262bf86bbb3009003b2c81}} 
+\index{Send\+Control@{Send\+Control}!Send\+Control@{Send\+Control}}
+\index{Send\+Control@{Send\+Control}!Send\+Control@{Send\+Control}}
+\subsubsection{\texorpdfstring{Send\+Control()}{SendControl()}}
+{\footnotesize\ttfamily Send\+Control\+::\+Send\+Control (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{\mbox{\hyperlink{class_i_r_control}{I\+R\+Control}} \&}]{I\+R\+\_\+control }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructer of send control. 
+
+The constructer wants IR control. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_send_control_aedec285713d090002e2848228cef2617}\label{class_send_control_aedec285713d090002e2848228cef2617}} 
+\index{Send\+Control@{Send\+Control}!main@{main}}
+\index{main@{main}!Send\+Control@{Send\+Control}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Send\+Control\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This is the state function for send control. 
+
+This function has 1 state\+: I\+D\+LE. The function waits for the send\+\_\+flag and the call the set\+Send\+Data with as parameter an encoded game\+\_\+leader with send\+\_\+pool readed data. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Gameleader/\mbox{\hyperlink{_send_control_8hpp}{Send\+Control.\+hpp}}\end{DoxyCompactItemize}

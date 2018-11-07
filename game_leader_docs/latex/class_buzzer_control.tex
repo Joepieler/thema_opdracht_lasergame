@@ -1,0 +1,61 @@
+\hypertarget{class_buzzer_control}{}\section{Buzzer\+Control Class Reference}
+\label{class_buzzer_control}\index{Buzzer\+Control@{Buzzer\+Control}}
+
+
+This class is used to control the buzzer.  
+
+
+
+
+{\ttfamily \#include $<$Buzzer\+Control.\+hpp$>$}
+
+Inheritance diagram for Buzzer\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_buzzer_control}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_buzzer_control_a25b3a51e33513aeeb0beb137463bbe70}{Buzzer\+Control}} (const char $\ast$name, int priority, hwlib\+::pin\+\_\+out \&buzz\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em This is the constructer for buzzer control. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_buzzer_control_a2c485c8888d861efae8461a87a47685f}\label{class_buzzer_control_a2c485c8888d861efae8461a87a47685f}} 
+void \mbox{\hyperlink{class_buzzer_control_a2c485c8888d861efae8461a87a47685f}{make\+Sound}} (int buzz\+\_\+length)
+\begin{DoxyCompactList}\small\item\em This function writes the buzz\+\_\+length in the buzz\+\_\+pool and sets the buzz\+\_\+on\+\_\+flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_buzzer_control_ae249e78ba5c0399e8b14091a0a8254eb}{main}} () override
+\begin{DoxyCompactList}\small\item\em This is the state function for the buzzer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to control the buzzer. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_buzzer_control_a25b3a51e33513aeeb0beb137463bbe70}\label{class_buzzer_control_a25b3a51e33513aeeb0beb137463bbe70}} 
+\index{Buzzer\+Control@{Buzzer\+Control}!Buzzer\+Control@{Buzzer\+Control}}
+\index{Buzzer\+Control@{Buzzer\+Control}!Buzzer\+Control@{Buzzer\+Control}}
+\subsubsection{\texorpdfstring{Buzzer\+Control()}{BuzzerControl()}}
+{\footnotesize\ttfamily Buzzer\+Control\+::\+Buzzer\+Control (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{hwlib\+::pin\+\_\+out \&}]{buzz\+\_\+pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructer for buzzer control. 
+
+The constructer wants a pin\+\_\+out buzz pin. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_buzzer_control_ae249e78ba5c0399e8b14091a0a8254eb}\label{class_buzzer_control_ae249e78ba5c0399e8b14091a0a8254eb}} 
+\index{Buzzer\+Control@{Buzzer\+Control}!main@{main}}
+\index{main@{main}!Buzzer\+Control@{Buzzer\+Control}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Buzzer\+Control\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This is the state function for the buzzer. 
+
+This function has 3 states\+: I\+D\+LE, ON, O\+FF. If the state is I\+D\+LE, the function waits for the buzz\+\_\+on\+\_\+flag, then he reads the buzz\+\_\+pool, set the length timer and switch the state to ON. If the state is ON, buzz\+\_\+pin is set high, interval\+\_\+timer is set, he waits for the buzz\+\_\+interval\+\_\+timer and the state will be O\+FF. If the state is O\+FF, buzz\+\_\+pin is set low, interval\+\_\+timer is set and if event is the same as buzz\+\_\+length\+\_\+timer, the state will be I\+D\+LE. If event is the ame as buzz\+\_\+interval\+\_\+timer, the state will be ON. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Gameleader/\mbox{\hyperlink{_buzzer_control_8hpp}{Buzzer\+Control.\+hpp}}\end{DoxyCompactItemize}

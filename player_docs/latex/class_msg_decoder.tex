@@ -1,0 +1,86 @@
+\hypertarget{class_msg_decoder}{}\section{Msg\+Decoder Class Reference}
+\label{class_msg_decoder}\index{Msg\+Decoder@{Msg\+Decoder}}
+
+
+This class decodes the incoming message and sends it to another class.  
+
+
+
+
+{\ttfamily \#include $<$Msg\+Decoder.\+hpp$>$}
+
+Inheritance diagram for Msg\+Decoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_msg_decoder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_msg_decoder_adc14f0f7ba3c05ef362502b54ffa2970}{Msg\+Decoder}} (const char $\ast$name, int priority, \mbox{\hyperlink{class_msg_listener}{Msg\+Listener}} \&listener)
+\begin{DoxyCompactList}\small\item\em This is the constructor for the messagedecoder. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_msg_decoder_ac83f1179595fbd34295668baf17385fc}{pause\+Detected}} (int pause\+\_\+length) override
+\begin{DoxyCompactList}\small\item\em This function overwrites the virtual pause\+Detected function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_msg_decoder_a8dd1cc50baab5555661a9a9af7f3949f}{check}} (unsigned int m)
+\begin{DoxyCompactList}\small\item\em This function checks if the message is valid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_msg_decoder_a0bf9b7579b386b8c9e18a9c606e80604}{main}} () override
+\begin{DoxyCompactList}\small\item\em This function contains the state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class decodes the incoming message and sends it to another class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_msg_decoder_adc14f0f7ba3c05ef362502b54ffa2970}\label{class_msg_decoder_adc14f0f7ba3c05ef362502b54ffa2970}} 
+\index{Msg\+Decoder@{Msg\+Decoder}!Msg\+Decoder@{Msg\+Decoder}}
+\index{Msg\+Decoder@{Msg\+Decoder}!Msg\+Decoder@{Msg\+Decoder}}
+\subsubsection{\texorpdfstring{Msg\+Decoder()}{MsgDecoder()}}
+{\footnotesize\ttfamily Msg\+Decoder\+::\+Msg\+Decoder (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{\mbox{\hyperlink{class_msg_listener}{Msg\+Listener}} \&}]{listener }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for the messagedecoder. 
+
+The constructor expects a listener to send the decoded message to. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_msg_decoder_a8dd1cc50baab5555661a9a9af7f3949f}\label{class_msg_decoder_a8dd1cc50baab5555661a9a9af7f3949f}} 
+\index{Msg\+Decoder@{Msg\+Decoder}!check@{check}}
+\index{check@{check}!Msg\+Decoder@{Msg\+Decoder}}
+\subsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily bool Msg\+Decoder\+::check (\begin{DoxyParamCaption}\item[{unsigned int}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function checks if the message is valid. 
+
+This function compares the xor bits with the with xor of the player and weapon bits. The function returns true if the message is valid and false if it is not. \mbox{\Hypertarget{class_msg_decoder_a0bf9b7579b386b8c9e18a9c606e80604}\label{class_msg_decoder_a0bf9b7579b386b8c9e18a9c606e80604}} 
+\index{Msg\+Decoder@{Msg\+Decoder}!main@{main}}
+\index{main@{main}!Msg\+Decoder@{Msg\+Decoder}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Msg\+Decoder\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This function contains the state machine. 
+
+The functions contains two states. In the idle state it waits for a pause and checks if the pause is valid. In the message state it checks if the following pause is valid and inserts a 1 or a 0 in the message respectively. If 16 valid pauses are detected the message gets sent with the message\+Detected function and it returns to the idle state. \mbox{\Hypertarget{class_msg_decoder_ac83f1179595fbd34295668baf17385fc}\label{class_msg_decoder_ac83f1179595fbd34295668baf17385fc}} 
+\index{Msg\+Decoder@{Msg\+Decoder}!pause\+Detected@{pause\+Detected}}
+\index{pause\+Detected@{pause\+Detected}!Msg\+Decoder@{Msg\+Decoder}}
+\subsubsection{\texorpdfstring{pause\+Detected()}{pauseDetected()}}
+{\footnotesize\ttfamily virtual void Msg\+Decoder\+::pause\+Detected (\begin{DoxyParamCaption}\item[{int}]{pause\+\_\+length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function overwrites the virtual pause\+Detected function. 
+
+This function writes the parameter pause\+\_\+length into the channel pauses. 
+
+Implements \mbox{\hyperlink{class_pause_listener_ad2a8cbca3aa46215a54b96bfc84cc78b}{Pause\+Listener}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Player/\mbox{\hyperlink{_msg_decoder_8hpp}{Msg\+Decoder.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,100 @@
+\hypertarget{class_display_control}{}\section{Display\+Control Class Reference}
+\label{class_display_control}\index{Display\+Control@{Display\+Control}}
+
+
+This class is used to show the command value on the screen.  
+
+
+
+
+{\ttfamily \#include $<$Display\+Control.\+hpp$>$}
+
+Inheritance diagram for Display\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_display_control}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_display_control_a5a24ccc28d6984bda6871ef6d0e4af3f}{Display\+Control}} (const char $\ast$name, int priority, hwlib\+::glcd\+\_\+oled \&display)
+\begin{DoxyCompactList}\small\item\em This is the constructor for a display. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a78b3ace358fc199a76e00148115f449d}\label{class_display_control_a78b3ace358fc199a76e00148115f449d}} 
+void \mbox{\hyperlink{class_display_control_a78b3ace358fc199a76e00148115f449d}{show\+Command}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function sets a flag en writes the value in the command\+\_\+pool. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_adcdd7237b9510e9cb9b2aff9d695ad2e}\label{class_display_control_adcdd7237b9510e9cb9b2aff9d695ad2e}} 
+void \mbox{\hyperlink{class_display_control_adcdd7237b9510e9cb9b2aff9d695ad2e}{show\+Countdown}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function sets a flag en writes the value in the countdown\+\_\+pool. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_aee4d1de8dc9b2aab72685cef2ce42d92}\label{class_display_control_aee4d1de8dc9b2aab72685cef2ce42d92}} 
+void \mbox{\hyperlink{class_display_control_aee4d1de8dc9b2aab72685cef2ce42d92}{show\+Deaths}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function sets a flag en writes the value in the deaths\+\_\+pool. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a6b4ed1ee72406c1ab082b7c6cf900001}\label{class_display_control_a6b4ed1ee72406c1ab082b7c6cf900001}} 
+void \mbox{\hyperlink{class_display_control_a6b4ed1ee72406c1ab082b7c6cf900001}{show\+Ammo}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function sets a flag en writes the value in the ammo\+\_\+pool. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a4cb0b2e7b72f7267531ffb0470216651}\label{class_display_control_a4cb0b2e7b72f7267531ffb0470216651}} 
+void \mbox{\hyperlink{class_display_control_a4cb0b2e7b72f7267531ffb0470216651}{show\+Health}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function sets a flag en writes the value in the health\+\_\+pool. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a1f33d5376aee69c307444fef969a1870}\label{class_display_control_a1f33d5376aee69c307444fef969a1870}} 
+void \mbox{\hyperlink{class_display_control_a1f33d5376aee69c307444fef969a1870}{show\+Player}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function sets a flag en writes the value in the player\+\_\+pool. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a4be28ed55f806917cf4cb7bab68ea6eb}\label{class_display_control_a4be28ed55f806917cf4cb7bab68ea6eb}} 
+void \mbox{\hyperlink{class_display_control_a4be28ed55f806917cf4cb7bab68ea6eb}{show\+Weapon}} (const char $\ast$value)
+\begin{DoxyCompactList}\small\item\em This function sets a flag en writes the value in the weapon\+\_\+pool. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_ae2d8d0f502941d859639fd46ddd8924b}\label{class_display_control_ae2d8d0f502941d859639fd46ddd8924b}} 
+void \mbox{\hyperlink{class_display_control_ae2d8d0f502941d859639fd46ddd8924b}{update\+Command\+Value}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function updates the command value on the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a7a566545dbdd6834307d27de99a221d6}\label{class_display_control_a7a566545dbdd6834307d27de99a221d6}} 
+void \mbox{\hyperlink{class_display_control_a7a566545dbdd6834307d27de99a221d6}{update\+Countdown\+Value}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function updates the countdown value on the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a6bb416767f43144827fa5bf6ecece4a9}\label{class_display_control_a6bb416767f43144827fa5bf6ecece4a9}} 
+void \mbox{\hyperlink{class_display_control_a6bb416767f43144827fa5bf6ecece4a9}{update\+Deaths\+Value}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function updates the deaths value on the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_aa54c7b984287e6a694ea83a3cb3d8ece}\label{class_display_control_aa54c7b984287e6a694ea83a3cb3d8ece}} 
+void \mbox{\hyperlink{class_display_control_aa54c7b984287e6a694ea83a3cb3d8ece}{update\+Ammo\+Value}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function updates the ammo value on the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a1d61b517063ca3f3dd36d2b7eb3ef909}\label{class_display_control_a1d61b517063ca3f3dd36d2b7eb3ef909}} 
+void \mbox{\hyperlink{class_display_control_a1d61b517063ca3f3dd36d2b7eb3ef909}{update\+Healt\+Value}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function updates the health value on the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_ad6107e04362c907da6a64b73bcc9e795}\label{class_display_control_ad6107e04362c907da6a64b73bcc9e795}} 
+void \mbox{\hyperlink{class_display_control_ad6107e04362c907da6a64b73bcc9e795}{update\+Player\+Value}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function updates the player value on the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_ae343066ad92148ddc6cd9f253993d4b4}\label{class_display_control_ae343066ad92148ddc6cd9f253993d4b4}} 
+void \mbox{\hyperlink{class_display_control_ae343066ad92148ddc6cd9f253993d4b4}{update\+Weapon\+Value}} (const char $\ast$value)
+\begin{DoxyCompactList}\small\item\em This function updates the weapon value on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_display_control_a9707c32249e0a648afc2def818900f30}{main}} () override
+\begin{DoxyCompactList}\small\item\em This is the state function for the display class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to show the command value on the screen. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_display_control_a5a24ccc28d6984bda6871ef6d0e4af3f}\label{class_display_control_a5a24ccc28d6984bda6871ef6d0e4af3f}} 
+\index{Display\+Control@{Display\+Control}!Display\+Control@{Display\+Control}}
+\index{Display\+Control@{Display\+Control}!Display\+Control@{Display\+Control}}
+\subsubsection{\texorpdfstring{Display\+Control()}{DisplayControl()}}
+{\footnotesize\ttfamily Display\+Control\+::\+Display\+Control (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{hwlib\+::glcd\+\_\+oled \&}]{display }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for a display. 
+
+The constructor expects a display. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_display_control_a9707c32249e0a648afc2def818900f30}\label{class_display_control_a9707c32249e0a648afc2def818900f30}} 
+\index{Display\+Control@{Display\+Control}!main@{main}}
+\index{main@{main}!Display\+Control@{Display\+Control}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Display\+Control\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This is the state function for the display class. 
+
+This function has one state\+: W\+A\+I\+T\+\_\+\+F\+O\+R\+\_\+\+M\+E\+S\+S\+A\+GE. If event is the same as display\+\_\+command\+\_\+flag, the function update\+Command\+Value with as parameter the readen comman\+\_\+pool value. If event is the same as display\+\_\+countdown\+\_\+flag, the function update\+Countdown\+Value with as parameter the readen countdown\+\_\+pool value. If event is the same as display\+\_\+deaths\+\_\+flag, the function update\+Deaths\+Value with as parameter the readen deaths\+\_\+pool value. If event is the same as display\+\_\+ammo\+\_\+flag, the function update\+Ammo\+Value with as parameter the readen ammo\+\_\+pool value. If event is the same as display\+\_\+health\+\_\+flag, the function update\+Health\+Value with as parameter the readen health\+\_\+pool value. If event is the same as display\+\_\+player\+\_\+flag, the function update\+Player\+Value with as parameter the readen player\+\_\+pool value. If event is the same as display\+\_\+weapon\+\_\+flag, the function update\+Weapon\+Value with as parameter the readen Weapon\+\_\+pool value. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Player/\mbox{\hyperlink{_display_control_8hpp}{Display\+Control.\+hpp}}\end{DoxyCompactItemize}

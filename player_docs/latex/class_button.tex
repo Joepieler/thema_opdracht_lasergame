@@ -1,0 +1,58 @@
+\hypertarget{class_button}{}\section{Button Class Reference}
+\label{class_button}\index{Button@{Button}}
+
+
+This class is used to make a button object.  
+
+
+
+
+{\ttfamily \#include $<$Button.\+hpp$>$}
+
+Inheritance diagram for Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_button}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_button_a7771486e8e6649ee30c85ab5580796da}{Button}} (const char $\ast$name, int priority, hwlib\+::pin\+\_\+in \&pin\+\_\+button, \mbox{\hyperlink{class_button_listener}{Button\+Listener}} \&listener, unsigned int buttonnumber)
+\begin{DoxyCompactList}\small\item\em This is the constructor for a button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_button_a4cc671cc425acd0ee1b8f2f437cf40db}{main}} () override
+\begin{DoxyCompactList}\small\item\em The main contains the state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to make a button object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_button_a7771486e8e6649ee30c85ab5580796da}\label{class_button_a7771486e8e6649ee30c85ab5580796da}} 
+\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\subsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily Button\+::\+Button (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{hwlib\+::pin\+\_\+in \&}]{pin\+\_\+button,  }\item[{\mbox{\hyperlink{class_button_listener}{Button\+Listener}} \&}]{listener,  }\item[{unsigned int}]{buttonnumber }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for a button. 
+
+The constructor expects a listener which is the class that owns the button. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_button_a4cc671cc425acd0ee1b8f2f437cf40db}\label{class_button_a4cc671cc425acd0ee1b8f2f437cf40db}} 
+\index{Button@{Button}!main@{main}}
+\index{main@{main}!Button@{Button}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Button\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+The main contains the state machine. 
+
+The main only consists of one state the wait\+\_\+for\+\_\+button\+\_\+press state. The state waits for a clock that gets called every 100 ms. When the clock is called the button pin gets checked for input. If there is a input the function buttonpressed in the listener gets called. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Player/\mbox{\hyperlink{_button_8hpp}{Button.\+hpp}}\end{DoxyCompactItemize}

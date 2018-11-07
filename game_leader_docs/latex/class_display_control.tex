@@ -1,0 +1,79 @@
+\hypertarget{class_display_control}{}\section{Display\+Control Class Reference}
+\label{class_display_control}\index{Display\+Control@{Display\+Control}}
+
+
+This class is used to show the command value on the screen.  
+
+
+
+
+{\ttfamily \#include $<$Display\+Control.\+hpp$>$}
+
+Inheritance diagram for Display\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_display_control}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_display_control_a5a24ccc28d6984bda6871ef6d0e4af3f}{Display\+Control}} (const char $\ast$name, int priority, hwlib\+::glcd\+\_\+oled \&display)
+\begin{DoxyCompactList}\small\item\em This is the constructor for a display. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a78b3ace358fc199a76e00148115f449d}\label{class_display_control_a78b3ace358fc199a76e00148115f449d}} 
+void \mbox{\hyperlink{class_display_control_a78b3ace358fc199a76e00148115f449d}{show\+Command}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function sets a flag en writes the value in the command\+\_\+pool. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_aa231d63d18b09506e0c766999f480579}\label{class_display_control_aa231d63d18b09506e0c766999f480579}} 
+void \mbox{\hyperlink{class_display_control_aa231d63d18b09506e0c766999f480579}{clear}} ()
+\begin{DoxyCompactList}\small\item\em This function sets a flag to clear the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_display_control_ae2d8d0f502941d859639fd46ddd8924b}{update\+Command\+Value}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em This function updates the command value on the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_display_control_a01207b2034dc3946856496bf2e4d39b6}\label{class_display_control_a01207b2034dc3946856496bf2e4d39b6}} 
+void \mbox{\hyperlink{class_display_control_a01207b2034dc3946856496bf2e4d39b6}{clear\+Command\+Value}} ()
+\begin{DoxyCompactList}\small\item\em This function clears the command value on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_display_control_a9707c32249e0a648afc2def818900f30}{main}} () override
+\begin{DoxyCompactList}\small\item\em This is the state function for the display class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to show the command value on the screen. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_display_control_a5a24ccc28d6984bda6871ef6d0e4af3f}\label{class_display_control_a5a24ccc28d6984bda6871ef6d0e4af3f}} 
+\index{Display\+Control@{Display\+Control}!Display\+Control@{Display\+Control}}
+\index{Display\+Control@{Display\+Control}!Display\+Control@{Display\+Control}}
+\subsubsection{\texorpdfstring{Display\+Control()}{DisplayControl()}}
+{\footnotesize\ttfamily Display\+Control\+::\+Display\+Control (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{hwlib\+::glcd\+\_\+oled \&}]{display }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for a display. 
+
+The constructor expects a display. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_display_control_a9707c32249e0a648afc2def818900f30}\label{class_display_control_a9707c32249e0a648afc2def818900f30}} 
+\index{Display\+Control@{Display\+Control}!main@{main}}
+\index{main@{main}!Display\+Control@{Display\+Control}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Display\+Control\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This is the state function for the display class. 
+
+This function has one state\+: W\+A\+I\+T\+\_\+\+F\+O\+R\+\_\+\+M\+E\+S\+S\+A\+GE. The function will wait for the display\+\_\+command\+\_\+flag and will wait and call a function where he will read the pool. Else if he will wait for the clear\+\_\+flag and will call a function. \mbox{\Hypertarget{class_display_control_ae2d8d0f502941d859639fd46ddd8924b}\label{class_display_control_ae2d8d0f502941d859639fd46ddd8924b}} 
+\index{Display\+Control@{Display\+Control}!update\+Command\+Value@{update\+Command\+Value}}
+\index{update\+Command\+Value@{update\+Command\+Value}!Display\+Control@{Display\+Control}}
+\subsubsection{\texorpdfstring{update\+Command\+Value()}{updateCommandValue()}}
+{\footnotesize\ttfamily void Display\+Control\+::update\+Command\+Value (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function updates the command value on the screen. 
+
+If the value is 42, the function makes a star of it. This is special for the star on the gamepad. Else the function will print the int value on the screen. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Gameleader/\mbox{\hyperlink{_display_control_8hpp}{Display\+Control.\+hpp}}\end{DoxyCompactItemize}

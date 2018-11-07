@@ -1,0 +1,61 @@
+\hypertarget{class_game_logs}{}\section{Game\+Logs Class Reference}
+\label{class_game_logs}\index{Game\+Logs@{Game\+Logs}}
+
+
+This class is used to track all the hits during the game and to print them at the end.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Logs.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_logs_aff50867c6abefacf3d80180015f94e70}{add\+Log}} (uint8\+\_\+t player, const char $\ast$weapon)
+\begin{DoxyCompactList}\small\item\em This is function adds a log. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_logs_a8c7dec27f1cd0c1b6df508b9e3172459}{print\+Logs}} ()
+\begin{DoxyCompactList}\small\item\em This function prints all the logs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_logs_ab645b6718f2d5ee716c8b4df4dddf561}{clear\+Logs}} ()
+\begin{DoxyCompactList}\small\item\em This function cleats the logs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to track all the hits during the game and to print them at the end. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_logs_aff50867c6abefacf3d80180015f94e70}\label{class_game_logs_aff50867c6abefacf3d80180015f94e70}} 
+\index{Game\+Logs@{Game\+Logs}!add\+Log@{add\+Log}}
+\index{add\+Log@{add\+Log}!Game\+Logs@{Game\+Logs}}
+\subsubsection{\texorpdfstring{add\+Log()}{addLog()}}
+{\footnotesize\ttfamily void Game\+Logs\+::add\+Log (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{player,  }\item[{const char $\ast$}]{weapon }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is function adds a log. 
+
+The function expects a player number and a weapon name. It then adds the player number and weapon name to two seperate arrays. The counter tracks how many logs there are. \mbox{\Hypertarget{class_game_logs_ab645b6718f2d5ee716c8b4df4dddf561}\label{class_game_logs_ab645b6718f2d5ee716c8b4df4dddf561}} 
+\index{Game\+Logs@{Game\+Logs}!clear\+Logs@{clear\+Logs}}
+\index{clear\+Logs@{clear\+Logs}!Game\+Logs@{Game\+Logs}}
+\subsubsection{\texorpdfstring{clear\+Logs()}{clearLogs()}}
+{\footnotesize\ttfamily void Game\+Logs\+::clear\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function cleats the logs. 
+
+Clearing the logs is done by setting the counter to 0 and not removing the values from the arrays. \mbox{\Hypertarget{class_game_logs_a8c7dec27f1cd0c1b6df508b9e3172459}\label{class_game_logs_a8c7dec27f1cd0c1b6df508b9e3172459}} 
+\index{Game\+Logs@{Game\+Logs}!print\+Logs@{print\+Logs}}
+\index{print\+Logs@{print\+Logs}!Game\+Logs@{Game\+Logs}}
+\subsubsection{\texorpdfstring{print\+Logs()}{printLogs()}}
+{\footnotesize\ttfamily void Game\+Logs\+::print\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function prints all the logs. 
+
+The print function shows the player you have been hit by and the weapon you were hit by. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Player/\mbox{\hyperlink{_game_logs_8hpp}{Game\+Logs.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\hypertarget{class_pause_detector}{}\section{Pause\+Detector Class Reference}
+\label{class_pause_detector}\index{Pause\+Detector@{Pause\+Detector}}
+
+
+This class detects the pauses in a IR signal and sends them to another class.  
+
+
+
+
+{\ttfamily \#include $<$Pause\+Detector.\+hpp$>$}
+
+Inheritance diagram for Pause\+Detector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pause_detector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pause_detector_a89abb61f172dcdcdda2ab5ce3792983f}{Pause\+Detector}} (const char $\ast$name, int priority, hwlib\+::pin\+\_\+in \&irp, \mbox{\hyperlink{class_pause_listener}{Pause\+Listener}} \&listener)
+\begin{DoxyCompactList}\small\item\em This is the constructor for the pause\+Detector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pause_detector_a0ee4661673d1e5604877903c5d2cb35e}{main}} () override
+\begin{DoxyCompactList}\small\item\em This function contains the state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class detects the pauses in a IR signal and sends them to another class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pause_detector_a89abb61f172dcdcdda2ab5ce3792983f}\label{class_pause_detector_a89abb61f172dcdcdda2ab5ce3792983f}} 
+\index{Pause\+Detector@{Pause\+Detector}!Pause\+Detector@{Pause\+Detector}}
+\index{Pause\+Detector@{Pause\+Detector}!Pause\+Detector@{Pause\+Detector}}
+\subsubsection{\texorpdfstring{Pause\+Detector()}{PauseDetector()}}
+{\footnotesize\ttfamily Pause\+Detector\+::\+Pause\+Detector (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{priority,  }\item[{hwlib\+::pin\+\_\+in \&}]{irp,  }\item[{\mbox{\hyperlink{class_pause_listener}{Pause\+Listener}} \&}]{listener }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor for the pause\+Detector. 
+
+The constructor expects a listener to send the detected messages to. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pause_detector_a0ee4661673d1e5604877903c5d2cb35e}\label{class_pause_detector_a0ee4661673d1e5604877903c5d2cb35e}} 
+\index{Pause\+Detector@{Pause\+Detector}!main@{main}}
+\index{main@{main}!Pause\+Detector@{Pause\+Detector}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Pause\+Detector\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+This function contains the state machine. 
+
+The state machine consists of two states. The idle state waits every 100 us and checks if a pause is detected. If the pause ends it gets sent to the listener class and switches to the signal state. When a new pause starts the state switches to idle. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/ti-\/software/thema\+\_\+opdracht\+\_\+lasergame/\+Player/\mbox{\hyperlink{_pause_detector_8hpp}{Pause\+Detector.\+hpp}}\end{DoxyCompactItemize}
