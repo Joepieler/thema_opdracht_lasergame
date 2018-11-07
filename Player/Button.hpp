@@ -27,31 +27,31 @@ private:
     hwlib::pin_in & pin_button;
     ButtonListener& listener;
     rtos::clock receive_clock;
-    unsigned int buttonnumber;
+    unsigned int button_number;
 public:
 	/// \brief
 	/// This is the constructor for a button.
 	/// \details
 	/// The constructor expects a listener which is the class that owns the button.
-    Button( const char * name, int priority, hwlib::pin_in & pin_button, ButtonListener & listener, unsigned int buttonnumber ):
-		task( priority, name ),
+    Button( const char * name, int priority, hwlib::pin_in & pin_button, ButtonListener & listener, unsigned int button_number ):
+	task( priority, name ),
         pin_button( pin_button ),
         listener( listener ),
         receive_clock( this, 100 * rtos::ms, "receive_clock" ),
-        buttonnumber( buttonnumber )
+        button_number( button_number )
         {}
 		
-		/// \brief
-		/// The main contains the state machine.
-		/// \details
-		/// The main only consists of one state the wait_for_button_press state.
-		/// The state waits for a clock that gets called every 100 ms.
-		/// When the clock is called the button pin gets checked for input.
-		/// If there is a input the function buttonpressed in the listener gets called.
-		void main() override {
+	/// \brief
+	/// The main contains the state machine.
+	/// \details
+	/// The main only consists of one state the wait_for_button_press state.
+	/// The state waits for a clock that gets called every 100 ms.
+	/// When the clock is called the button pin gets checked for input.
+	/// If there is a input the function buttonpressed in the listener gets called.
+	void main() override {
         
-		enum states { WAIT_FOR_BUTTON_PRESS };
-		states state = states::WAIT_FOR_BUTTON_PRESS;
+	enum states { WAIT_FOR_BUTTON_PRESS };
+	states state = states::WAIT_FOR_BUTTON_PRESS;
         for(;;) {
             switch( state ) {
                 case states::WAIT_FOR_BUTTON_PRESS: {
