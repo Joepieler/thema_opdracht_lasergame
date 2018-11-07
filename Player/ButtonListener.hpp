@@ -21,7 +21,7 @@ class ButtonListener {
 public:
     /// \brief
     /// This virtual function gets called by a button and gets overwritten in another class.
-    virtual void buttonPressed( unsigned int & buttonnumber ) = 0;
+    virtual void buttonPressed( unsigned int & button_number ) = 0;
     
 };
 
