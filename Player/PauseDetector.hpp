@@ -80,4 +80,4 @@ public:
 	}
 };
 
-#endif // PAUSE_DETECTOR_HPP
+#endif

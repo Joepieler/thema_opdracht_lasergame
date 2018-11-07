@@ -147,4 +147,4 @@ public:
 	}
 };
 
-#endif // MSG_DECODER_HPP
+#endif

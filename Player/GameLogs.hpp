@@ -58,4 +58,4 @@ public:
         }
 };
 
-#endif //GAMELOGS_HPP
+#endif

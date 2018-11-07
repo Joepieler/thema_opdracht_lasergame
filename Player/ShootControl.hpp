@@ -106,4 +106,4 @@ public:
     }
 };
 
-#endif //SHOOTCONTROL_HPP
+#endif

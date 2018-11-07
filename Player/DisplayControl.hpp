@@ -1,9 +1,25 @@
+// ==========================================================================
+//
+// File      : DisplayControl.hpp
+// Copyright : bartvannetburg@hotmail.com 2018
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// ==========================================================================
+
+// this file contains Doxygen lines
+/// @file
+
 #ifndef DISPLAY_CONTROL_HPP
 #define DISPLAY_CONTROL_HPP
 
 #include "hwlib.hpp"
 #include "rtos.hpp"
 
+/// \brief
+/// This class is used to show the command value on the screen.
 class DisplayControl : public rtos::task<> {
 private:
 	rtos::flag display_command_flag;
@@ -58,6 +74,10 @@ private:
     hwlib::window_part command_value = hwlib::window_part( display, hwlib::location( devider, font_height * 6 ), hwlib::location( display_size_x - ( font_width * 7 ), font_height * 7 ) );
     hwlib::window_ostream command_value_ostream = hwlib::window_ostream( command_value, font );
 public:
+/// \brief
+/// This is the constructor for a display.
+/// \details
+/// The constructor expects a display.
     DisplayControl( const char * name, int priority, hwlib::glcd_oled & display ):
 		task( priority, name ),
         display_command_flag( this, "display command flag" ),
@@ -88,42 +108,58 @@ public:
         << hwlib::flush;
 
     }
-   
+
+/// \brief
+/// This function sets a flag en writes the value in the command_pool.
     void showCommand( uint8_t value ) {
         display_command_flag.set();
         command_pool.write( value );
     }
     
+/// \brief
+/// This function sets a flag en writes the value in the countdown_pool.
     void showCountdown( uint8_t value ) {
         display_countdown_flag.set();
         countdown_pool.write( value );
     }
     
+/// \brief
+/// This function sets a flag en writes the value in the deaths_pool.
     void showDeaths(uint8_t value ){
         display_deaths_flag.set();
         deaths_pool.write( value );
     }
     
+/// \brief
+/// This function sets a flag en writes the value in the ammo_pool.
     void showAmmo( uint8_t value ) {
         display_ammo_flag.set();       
         ammo_pool.write( value );
     }
     
+/// \brief
+/// This function sets a flag en writes the value in the health_pool.
     void showHealth( uint8_t value ) {
         display_health_flag.set();
         health_pool.write( value );
     }
     
+/// \brief
+/// This function sets a flag en writes the value in the player_pool.
     void showPlayer( uint8_t value ) {
         display_player_flag.set();
         player_pool.write( value );
     }
     
+/// \brief
+/// This function sets a flag en writes the value in the weapon_pool.
     void showWeapon( const char * value ) {
         display_weapon_flag.set();
         weapon_pool.write( value );
     }
 
+/// \brief
+/// This function updates the command value on the screen.
     void updateCommandValue( uint8_t value ) {
         command_value_ostream 
             << "\t0000"
@@ -131,6 +167,8 @@ public:
             << hwlib::flush;
     }
     
+/// \brief
+/// This function updates the countdown value on the screen.
     void updateCountdownValue( uint8_t value ) {
         countdown_value_ostream 
             << "\t0000"
@@ -138,6 +176,8 @@ public:
             << hwlib::flush;
     }
     
+/// \brief
+/// This function updates the deaths value on the screen.
     void updateDeathsValue( uint8_t value ) {
         deaths_value_ostream
 			<< "\t0000"
@@ -149,6 +189,8 @@ public:
             << hwlib::flush;
     } 
 	
+/// \brief
+/// This function updates the ammo value on the screen.
     void updateAmmoValue( uint8_t value ) {
         ammo_value_ostream
 			<< "\t0000"
@@ -160,6 +202,8 @@ public:
             << hwlib::flush;
     } 
 	
+/// \brief
+/// This function updates the health value on the screen.
     void updateHealtValue( uint8_t value ) {
         health_value_ostream
 			<< "\t0000"
@@ -171,6 +215,8 @@ public:
             << hwlib::flush;
     } 
 	
+/// \brief
+/// This function updates the player value on the screen.
     void updatePlayerValue( uint8_t value ) {
         player_value_ostream
             << "\t0000"
@@ -178,6 +224,8 @@ public:
             << hwlib::flush;
     }
 	
+/// \brief
+/// This function updates the weapon value on the screen.
     void updateWeaponValue( const char * value  ){
         weapon_value_ostream
             << "\t0000"
@@ -189,6 +237,17 @@ public:
             << hwlib::flush;
     }
 
+/// \brief
+/// This is the state function for the display class.
+/// \details
+/// This function has one state: WAIT_FOR_MESSAGE.
+/// If event is the same as display_command_flag, the function updateCommandValue with as parameter the readen comman_pool value.
+/// If event is the same as display_countdown_flag, the function updateCountdownValue with as parameter the readen countdown_pool value.
+/// If event is the same as display_deaths_flag, the function updateDeathsValue with as parameter the readen deaths_pool value.
+/// If event is the same as display_ammo_flag, the function updateAmmoValue with as parameter the readen ammo_pool value.
+/// If event is the same as display_health_flag, the function updateHealthValue with as parameter the readen health_pool value.
+/// If event is the same as display_player_flag, the function updatePlayerValue with as parameter the readen player_pool value.
+/// If event is the same as display_weapon_flag, the function updateWeaponValue with as parameter the readen Weapon_pool value.
     void main() override {
 		enum states { WAIT_FOR_MESSAGE };
 		states state = states::WAIT_FOR_MESSAGE;
@@ -237,4 +296,4 @@ public:
     }
 };
 
-#endif // DISPLAY_CONTROL_HPP
+#endif

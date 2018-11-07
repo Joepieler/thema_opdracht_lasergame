@@ -24,4 +24,4 @@ public:
 	virtual void pauseDetected( int pause_length ) = 0;
 };
 
-#endif // PAUSE_LISTENER_HPP
+#endif 

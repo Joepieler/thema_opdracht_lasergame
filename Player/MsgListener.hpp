@@ -33,4 +33,4 @@ public:
 	virtual void msgReceived( const ir_msg & msg ) = 0;
 };
 
-#endif // MSG_LISTENER_HPP
+#endif
