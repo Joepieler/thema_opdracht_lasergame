@@ -1,3 +1,17 @@
+// ==========================================================================
+//
+// File      : PlayerControl.hpp
+// Copyright : bartvannetburg@hotmail.com 2018
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// ==========================================================================
+
+// this file contains Doxygen lines
+/// @file
+
 #ifndef PLAYERCONTROL_HPP
 #define PLAYERCONTROL_HPP
 
@@ -15,6 +29,8 @@
 #include "ShootControl.hpp"
 #include "DisplayControl.hpp"
 
+/// \brief
+/// This class controls the player tasks.
 class PlayerControl : public rtos::task<>, public MsgListener, public ButtonListener {
 private:
 	rtos::channel< ir_msg, 1024 > msg_channel;
@@ -47,6 +63,11 @@ private:
 	const unsigned int led_on = 1;
 	const unsigned int led_off = 0;
 public:
+	/// \brief
+	/// This is the constructor for the PlayerControl.
+	/// \details
+	/// The constructor expects shootcontrol, displaycontrol, buzzercontrol, playerdata, weapon, and gamelogs to send messages to or get data from.
+	/// The constructor also expects two pins for the reload and dead leds.
 	PlayerControl( const char * name, int priority, ShootControl & shoot_control, DisplayControl & display_control, BuzzerControl & buzzer_control, PlayerData & player_data, Weapon & weapon, GameLogs & game_logs, auto & reload_led, auto & dead_led ):
 		task( priority, name ),
 		msg_channel( this, "msg_channel" ),
@@ -69,18 +90,26 @@ public:
 		dead_led( dead_led )
 	{}
 	
+	/// \brief
+	/// This function writes in the player_number_channel.
 	void setPlayerNumber( uint8_t player_number ) {
 		player_number_channel.write( player_number );
 	}
 	
+	/// \brief
+	/// This function writes in the player_weapon_channel.
 	void setWeapon( uint8_t weapon_number ) {
 		player_weapon_channel.write( weapon_number );
 	}
 	
+	/// \brief
+	/// This function overwrites the msgReceived function and writes the messsage in the msg_channel.
 	virtual void msgReceived( const ir_msg & msg ) override {
 		msg_channel.write( msg );
 	};
 	
+	/// \brief
+	/// This function overwrites the buttonPressed function and sets the flag depending on which button is pressed.
 	virtual void buttonPressed( unsigned int & buttonnumber ) override {
 		if( buttonnumber == 0 ) {
 			trigger_flag.set();
@@ -90,6 +119,23 @@ public:
 		}
 	}
 	
+	/// \brief
+	/// This function contains the state machine.
+	/// \details
+	/// This function consists of 5 states.
+	/// The state init_game waits for the player_number and player_weapon from the keypad and a message from the msgdecoder.
+	/// The message is used to set the game time and start the game.
+	/// When the game starts the state becomes playing.
+	/// The playing state consists of 3 states and starts with alive_able_to_shoot.
+	/// All three substates of playing wait for a game timer to end the game print the logs and transition back to the init state.
+	/// The alive_able_to_shoot state waits for the trigger or reload flag to set a timer and transition to the alive_not_able_to_shot state.
+	/// It also waits for a message to check if the player gets hit.
+	/// If the player dies the state transitions to the dead state.
+	/// The alive_not_able_to_shoot state also waits for a message to check if the player gets hit.
+	/// If the player dies the state transition to the dead state.
+	/// If the timer set by the alive_able_to_shoot state runs out the state transitions back to the alive_able_to_shoot.
+	/// The dead state resets the player health ammo and waits for the death timer.
+	/// When the timer runs out the state transitions back to alive_able_to_shoot.
 	void main() override {
 		enum states { INIT_GAME, PLAYING };
 		enum playing_states { ALIVE_ABLE_TO_SHOOT, ALIVE_NOT_ABLE_TO_SHOOT, DEAD };

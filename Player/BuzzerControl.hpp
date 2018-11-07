@@ -21,7 +21,7 @@ private:
     int buzzer_off = 0;
 public:
     BuzzerControl(  const char * name, int priority, hwlib::pin_out & buzz_pin ):
-        task( name, priority ),
+        task( priority, name ),
         buzz_pin( buzz_pin ),
         buzz_on_flag( this, "buzz on flag" ),
         buzz_length_timer( this, "buzz length timer" ),

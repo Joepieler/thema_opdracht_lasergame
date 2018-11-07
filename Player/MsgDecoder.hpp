@@ -1,3 +1,17 @@
+// ==========================================================================
+//
+// File      : MsgDecoder.hpp
+// Copyright : bartvannetburg@hotmail.com 2018
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// ==========================================================================
+
+// this file contains Doxygen lines
+/// @file
+
 #ifndef MSG_DECODER_HPP
 #define MSG_DECODER_HPP
 
@@ -7,6 +21,8 @@
 #include "PauseListener.hpp"
 #include "MsgListener.hpp"
 
+/// \brief
+/// This class decodes the incoming message and sends it to another class.
 class MsgDecoder : public rtos::task<>, public PauseListener {
 private:
 	rtos::channel<unsigned int, 1024> pauses;
@@ -25,16 +41,28 @@ private:
 	const unsigned int max_bits = 16;
 	
 public:
+	/// \brief
+	/// This is the constructor for the messagedecoder.
+	/// \details
+	/// The constructor expects a listener to send the decoded message to.
 	MsgDecoder( const char * name, int priority, MsgListener & listener ):
 		task( priority, name ),
 		pauses( this, "pauses" ),
 		listener( listener )
 	{}
 	
+	/// \brief
+	/// This function overwrites the virtual pauseDetected function.
+	/// \details
+	/// This function writes the parameter pause_length into the channel pauses.
 	virtual void pauseDetected( int pause_length ) override {
 		pauses.write( pause_length );
 	}
-
+	/// \brief
+	/// This function checks if the message is valid.
+	/// \details
+	/// This function compares the xor bits with the with xor of the player and weapon bits.
+	/// The function returns true if the message is valid and false if it is not.
 	bool check( unsigned int m ) {
 		uint8_t player = ( (m & player_mask ) >> 1 );
 		uint8_t weapon = ( (m & weapon_mask ) >> 6 );
@@ -46,6 +74,13 @@ public:
 		return false;
 	}
 	
+	/// \brief
+	/// This function contains the state machine.
+	/// \details
+	/// The functions contains two states.
+	/// In the idle state it waits for a pause and checks if the pause is valid.
+	/// In the message state it checks if the following pause is valid and inserts a 1 or a 0 in the message respectively.
+	/// If 16 valid pauses are detected the message gets sent with the messageDetected function and it returns to the idle state.
 	void main() override {
 		enum states { idle, message };
 		states state = states::idle;

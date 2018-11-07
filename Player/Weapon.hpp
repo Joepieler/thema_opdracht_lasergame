@@ -1,6 +1,22 @@
+// ==========================================================================
+//
+// File      : Weapon.hpp
+// Copyright : bartvannetburg@hotmail.com 2018
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// ==========================================================================
+
+// this file contains Doxygen lines
+/// @file
+
 #ifndef WEAPONS_HPP
 #define WEAPONS_HPP
 
+/// \brief
+/// This class contains the data of the weapon.
 class Weapon {
 private:
 	const char * weapon_name = "None";
@@ -11,6 +27,10 @@ private:
 	uint8_t max_ammo = 0;
 	uint8_t reload_time = 0;
 public:
+	/// \brief
+	/// This is the constructor for the weapon class
+	/// \details
+	/// The constructor sets all the weapon stats based on the number entered in the constructor.
 	void setWeapon( uint8_t weapon ) {
 		if( weapon == 1 ){
 			weapon_name = "AR";
@@ -32,6 +52,8 @@ public:
 		}
 	}
 	
+	/// \brief
+	/// This function returns the weapon name.
 	const char * getWeaponName( uint8_t weapon_ID ) {
 		if( weapon_ID == 1 ) {
 			return "AR";
@@ -42,6 +64,8 @@ public:
 		return "None";
 	}
 	
+	/// \brief
+	/// This function returns the weapon damage.
 	uint8_t getWeaponDamage( uint8_t weapon_ID ) {
 		if( weapon_ID == 1 ) {
 			return 40;
@@ -52,26 +76,38 @@ public:
 		return 0;
 	}
 	
+	/// \brief
+	/// This function returns the weaponID.
 	uint8_t getWeaponID() {
 		return weapon_ID;
 	}
 	
+	/// \brief
+	/// This function returns the ammo of the weapon.
 	uint8_t getAmmo() {
 		return ammo;
 	}
 	
+	/// \brief
+	/// This function returns the maximum ammo of the weapon.
 	uint8_t getMaxAmmo() {
 		return max_ammo;
 	}
 	
+	/// \brief
+	/// This function returns the shot delay of the weapon.
 	uint8_t getShotDelay() {
 		return shot_delay;
 	}
 	
+	/// \brief
+	/// This function returns the reload time of the weapon.
 	uint8_t getReloadTime() {
 		return reload_time;
 	}
 	
+	/// \brief
+	/// This function sets the ammo for the weapon.
 	void setAmmo( uint8_t amount ) {
 		ammo = amount;
 	} 
