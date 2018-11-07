@@ -1,9 +1,25 @@
+// ==========================================================================
+//
+// File      : Keypad.hpp
+// Copyright : bartvannetburg@hotmail.com 2018
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// ==========================================================================
+
+// this file contains Doxygen lines
+/// @file
+
 #ifndef KEYPAD_HPP
 #define KEYPAD_HPP
 
 #include "hwlib.hpp"
 #include "rtos.hpp"
 
+/// \brief
+/// In this class you can find the pin setup and initialize the characters.
 class Keypad {
 private:
     hwlib::target::pin_oc x0 = hwlib::target::pin_oc( hwlib::target::pins::d24 );
@@ -19,9 +35,11 @@ private:
     hwlib::matrix_of_switches ms = hwlib::matrix_of_switches( x, y );
     hwlib::keypad<16> m = hwlib::keypad<16>( ms, "123A456B789C*0#D" );
 public:
+/// \brief
+/// This function returns the pressed character.
     char getc() {
         return m.getc();
     }
 };
 
-#endif //KEYBOARD_HPP
+#endif

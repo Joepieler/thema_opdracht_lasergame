@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="Gameleader" InternalType="" Version="10.0.0">
+<CodeLite_Project Name="Player" InternalType="">
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00020001N0005Debug0000000000000001N0007Release000000000000]]>
@@ -30,13 +30,22 @@
   <Dependencies/>
   <VirtualDirectory Name="source">
     <File Name="main.cpp"/>
+    <File Name="Button.hpp"/>
+    <File Name="ButtonListener.hpp"/>
+    <File Name="BuzzerControl.hpp"/>
     <File Name="DisplayControl.hpp"/>
-    <File Name="GameLeader.hpp"/>
     <File Name="GameLogs.hpp"/>
     <File Name="IRControl.hpp"/>
     <File Name="Keypad.hpp"/>
     <File Name="KeypadControl.hpp"/>
-    <File Name="SendControl.hpp"/>
+    <File Name="MsgDecoder.hpp"/>
+    <File Name="MsgListener.hpp"/>
+    <File Name="PauseDetector.hpp"/>
+    <File Name="PauseListener.hpp"/>
+    <File Name="PlayerControl.hpp"/>
+    <File Name="PlayerData.hpp"/>
+    <File Name="ShootControl.hpp"/>
+    <File Name="Weapon.hpp"/>
     <File Name="Makefile"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
@@ -50,7 +59,7 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="MinGW ( TDM-GCC-32 )" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-O0;-std=c++11" C_Options="-g;-O0;-Wall" Assembler="" Required="no" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+       <Compiler Options="-g;-O0;-std=c++11" C_Options="-g;-O0;-Wall" Assembler="" Required="no" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value=".;../Catch/include"/>
       </Compiler>
       <Linker Options="" Required="yes"/>
@@ -126,4 +135,4 @@
       </Completion>
     </Configuration>
   </Settings>
-</CodeLite_Project>
+</CodeLite_Project>   
