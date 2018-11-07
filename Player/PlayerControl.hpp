@@ -114,7 +114,7 @@ public:
 		if( button_number == 0 ) {
 			trigger_flag.set();
 		}
-		else if( buttonnumber == 1 ) {
+		else if( button_number == 1 ) {
 			reload_flag.set();
 		}
 	}
