@@ -39,11 +39,11 @@ private:
 	/// This function encodes the message with the playerID and weaponID.
 	/// \details
 	/// The function makes the xor bits by using xor on the playerID and weaponID.
-    uint16_t encode( unsigned const int player_ID, unsigned const int wapen_ID ) {
+    uint16_t encode( unsigned const int player_ID, unsigned const int weapon_ID ) {
         uint16_t data = 1;
         uint8_t playerData = player_ID;
         data += ( playerData << 1 );
-        uint8_t gameData = wapen_ID;
+        uint8_t gameData = weapon_ID;
         data += ( gameData << 6 );
         uint8_t controlBits = 0;
         controlBits += ( ( ( data & 2 ) >> 1 ) ^ ( ( data & 64 ) >> 6 ) );
